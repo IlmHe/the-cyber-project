@@ -1,6 +1,6 @@
 ---
 title: ""
-permalink: "/"
+permalink: "/the-cyber-project/"
 layout: page
 ---
 

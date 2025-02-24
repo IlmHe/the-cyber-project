@@ -16,9 +16,9 @@ minimal: false             # use a dark header
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "HOME.md", title: "Home", url: "/the-cyber-project/"}
-  - {file: "PROJECTS.md", title: "Projects", url: "/the-cyber-project/projects/"}
-  - {file: "posts.html", title: "Posts", url: "/the-cyber-project/posts/"}
+  - {file: "HOME.md", title: "Home", url: "/"}
+  - {file: "PROJECTS.md", title: "Projects", url: "/"}
+  - {file: "posts.html", title: "Posts", url: "/"}
 
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons

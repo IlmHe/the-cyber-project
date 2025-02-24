@@ -17,9 +17,8 @@ minimal: false             # use a dark header
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "HOME.md", title: "Home", url: "/"}
-  - {file: "PROJECTS.md", title: "Projects", url: "/"}
-  - {file: "posts.html", title: "Posts", url: "/"}
-
+  - {file: "PROJECTS.md", title: "Projects", url: "/projects/"}
+  - {file: "posts.html", title: "Posts", url: "/posts/"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: Mail, icon: envelope, url: "mailto:thecyberproject.sandstorm424@aleeas.com"}
@@ -34,5 +33,5 @@ plugins:
  - jekyll-feed
  - jekyll-gist
 
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "/the-cyber-project" # the subpath of your site, e.g. /blog
 url: "https://ilmhe.github.io" # the base hostname & protocol for your site

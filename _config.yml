@@ -22,8 +22,8 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
 
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:niklasbuschmann@users.noreply.github.com"}
-  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/contrast"}
+  - {title: Mail, icon: envelope, url: "mailto:thecyberproject.sandstorm424@aleeas.com"}
+  - {title: Github, icon: github, url: "https://github.com/IlmHe"}
   - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/ilmar/"}
 
 comments:
@@ -33,3 +33,6 @@ comments:
 plugins:
  - jekyll-feed
  - jekyll-gist
+
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://ilmhe.github.io" # the base hostname & protocol for your site

@@ -1,5 +1,5 @@
-title: "Blog Title"
-author: "Blog Author"
+title: "The Cyber Project"
+author: "I.H"
 description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
 permalink: /:title/
 lang: "en"
@@ -16,13 +16,15 @@ minimal: false             # use a dark header
 # Menu
 
 navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "index.html"}
-  - {file: "README.md"}
+  - {file: "HOME.md", title: "Home", url: "/"}
+  - {file: "PROJECTS.md", title: "Projects", url: "/projects/"}
+  - {file: "posts.html", title: "Posts", url: "/posts/"}
+
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
   - {title: Mail, icon: envelope, url: "mailto:niklasbuschmann@users.noreply.github.com"}
   - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/contrast"}
-  - {title: Subscribe, icon: rss, url: "/feed.xml"}
+  - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/ilmar/"}
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/
@@ -30,3 +32,4 @@ comments:
 
 plugins:
  - jekyll-feed
+ - jekyll-gist

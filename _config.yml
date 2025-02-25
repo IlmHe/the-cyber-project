@@ -33,5 +33,5 @@ plugins:
  - jekyll-feed
  - jekyll-gist
 
-baseurl: "/the-cyber-project" # the subpath of your site, e.g. /blog
-url: "https://ilmhe.github.io" # the base hostname & protocol for your site
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://thecyberproject.fi" # the base hostname & protocol for your site

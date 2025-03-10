@@ -4,7 +4,7 @@ permalink: "/projects/"
 layout: page
 ---
 
-# Phish-Guard
+# Phish-Guard WIP   
 
 [Phish-Guard](https://github.com/IlmHe/Phish-Guard) is a privacy-friendly, lightweight browser extension designed to detect phishing emails, URLs, and other malicious content. It operates seamlessly in the background, providing users with an easy-to-use tool to enhance their online security.  
 

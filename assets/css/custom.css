@@ -1,0 +1,33 @@
+/* Custom button styles that adapt to Chirpy's theme */
+.btn-primary {
+  background: var(--btn-bg, #2196F3);
+  color: var(--btn-text-color, white);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--btn-hover-bg, #1976D2);
+  color: var(--btn-text-color, white);
+}
+
+.btn-secondary {
+  background: var(--sidebar-bg, #333);
+  color: var(--btn-text-color, white);
+  border: none;
+}
+
+.btn-secondary:hover {
+  background: var(--sidebar-muted-color, #555);
+  color: var(--btn-text-color, white);
+}
+
+.btn-games {
+  background: var(--btn-bg, #2196F3) !important;
+  color: var(--btn-text-color, white) !important;
+  border: none;
+}
+
+.btn-games:hover {
+  background: var(--btn-hover-bg, #1976D2) !important;
+  color: var(--btn-text-color, white) !important;
+}

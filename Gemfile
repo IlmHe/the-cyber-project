@@ -1,10 +1,7 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.2.0"
-gem "webrick", "~> 1.7"
-gem 'jekyll-seo-tag'
+gem "jekyll-theme-chirpy", "~> 7.0", ">= 7.0.1"
 
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-gist", "~> 1.5"
+group :test do
+  gem "html-proofer", "~> 5.0"
 end

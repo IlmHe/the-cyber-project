@@ -1,7 +1,8 @@
 ---
 title: "Thoughts on HTB"
-layout: post
-categories: media
+date: 2025-03-10 00:00:00 +0200
+categories: [Cybersecurity, Learning]
+tags: [htb, hackthebox, learning, blue-team]
 ---
 
 When I first dipped my toes into the world of cybersecurity, I stumbled upon Hack The Box (HTB) during my research. It seemed like the perfect playground for someone eager to learn the ropes.

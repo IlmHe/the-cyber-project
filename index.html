@@ -1,0 +1,125 @@
+---
+layout: page
+---
+
+<div class="homepage-intro" style="margin: 2rem 0 3rem 0;">
+  <h1>Welcome to The Cyber Project</h1>
+  <p style="font-size: 1.2rem; line-height: 1.6;">
+    I'm building tech projects with a focus on cybersecurity and sharing what I learn along the way. This site is where I showcase my work and occasionally write about interesting topics in tech and security.
+  </p>
+</div>
+
+<h2 style="margin-top: 3rem;">Featured Project</h2>
+
+<div id="featured-project-container"></div>
+
+{% assign featured = site.projects | where: "featured", true | sort: 'order' %}
+{% for project in featured %}
+<div id="featured-{{ forloop.index0 }}" style="display: none;">
+  <div class="project-card" style="border: 1px solid var(--main-border-color, #ddd); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; background: var(--card-bg, white);">
+    <h3 style="margin-top: 0;">
+      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+      <span style="background: #4CAF50; color: white; padding: 0.2rem 0.5rem; font-size: 0.7rem; border-radius: 3px; margin-left: 0.5rem;">FEATURED</span>
+    </h3>
+
+    <p style="font-size: 1.1rem;">{{ project.description }}</p>
+
+    {% if project.github %}
+    <div class="project-actions" style="margin-top: 1rem;">
+      <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display: inline-block; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px;">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+
+<script>
+(function() {
+  const featuredCount = {{ featured.size }};
+  if (featuredCount === 0) return;
+
+  const randomIndex = Math.floor(Math.random() * featuredCount);
+  const projectElement = document.getElementById('featured-' + randomIndex);
+  const container = document.getElementById('featured-project-container');
+
+  if (projectElement) {
+    container.innerHTML = projectElement.innerHTML;
+    projectElement.remove();
+  }
+})();
+</script>
+
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/projects/" class="btn btn-primary" style="display: inline-block; padding: 0.75rem 2rem; text-decoration: none; border-radius: 4px;">
+    View All Projects →
+  </a>
+</div>
+
+<hr style="margin: 3rem 0;">
+
+<h2>🎮 Quick Game Break</h2>
+
+<div id="random-game-container"></div>
+
+{% assign games_array = site.games | sort: 'order' %}
+{% for game in games_array %}
+<div id="game-{{ game.game_id }}" style="display: none;">
+  <div style="padding: 1.5rem; border: 1px solid var(--main-border-color, #ddd); border-radius: 8px; margin: 2rem 0; background: var(--card-bg, white);">
+    <h3 style="text-align: center; margin-top: 0;">{{ game.emoji }} {{ game.title }}</h3>
+    {{ game.content }}
+    <div style="text-align: center; margin-top: 1rem;">
+      <a href="/games/" class="btn btn-primary" style="display: inline-block; padding: 0.5rem 1.5rem; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">
+        More Games →
+      </a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<script>
+// Randomly choose which game to show on page load
+(function() {
+  const gameIds = [{% for game in games_array %}'{{ game.game_id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}];
+
+  if (gameIds.length === 0) return;
+
+  const randomId = gameIds[Math.floor(Math.random() * gameIds.length)];
+  const gameElement = document.getElementById('game-' + randomId);
+  const container = document.getElementById('random-game-container');
+
+  if (gameElement) {
+    container.innerHTML = gameElement.innerHTML;
+    gameElement.remove(); // Clean up hidden element
+  }
+})();
+</script>
+
+<hr style="margin: 3rem 0;">
+
+<h2>Latest Post</h2>
+
+<p>Thoughts on cybersecurity, tech, and what I'm learning along the way.</p>
+
+<div class="recent-posts" style="margin: 2rem 0;">
+{% for post in site.posts limit:1 %}
+  <div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--main-border-color, #eee);">
+    <h3 style="margin-bottom: 0.5rem;">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+    <div style="color: var(--text-muted-color, #666); font-size: 0.9rem; margin-bottom: 0.5rem;">
+      {{ post.date | date: "%B %d, %Y" }}
+    </div>
+    {% if post.excerpt %}
+    <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    {% endif %}
+  </div>
+{% endfor %}
+</div>
+
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/categories/" class="btn btn-primary" style="display: inline-block; padding: 0.75rem 2rem; text-decoration: none; border-radius: 4px;">
+    View All Posts →
+  </a>
+</div>

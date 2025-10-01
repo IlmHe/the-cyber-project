@@ -1,38 +1,123 @@
-title: "The Cyber Project"
-author: "I.H"
-description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
-permalink: /:title/
-lang: "en"
-excerpt_separator: "<!--more-->"
-date_format: "%B %d, %Y"
+theme: jekyll-theme-chirpy
 
-# Layout
+lang: en
 
-show_excerpts: true        # show article excerpts on the home page
-show_frame: true           # adds a gray frame to the site
-show_sidebar: false        # show a sidebar instead of the usual header
-minimal: false             # use a dark header
+timezone: Europe/Helsinki
 
-# Menu
+title: The Cyber Project
 
-navigation:                # accepts {file, title, url, icon, sidebaricon}
-  - {file: "HOME.md", title: "Home", url: "/"}
-  - {file: "PROJECTS.md", title: "Projects", url: "/projects/"}
-  - {file: "posts.html", title: "Posts", url: "/posts/"}
+tagline: Cybersecurity Projects and Blog
 
-external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:thecyberproject.sandstorm424@aleeas.com"}
-  - {title: Github, icon: github, url: "https://github.com/IlmHe"}
-  - {title: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/ilmar/"}
+description: >-
+  Personal projects and writings about cybersecurity
+
+url: "https://thecyberproject.fi"
+
+github:
+  username: IlmHe
+
+social:
+  name: I.H
+  email: thecyberproject.sandstorm424@aleeas.com
+  links:
+    - https://github.com/IlmHe
+    - https://www.linkedin.com/in/ilmar/
+
+theme_mode: # [light | dark]
+
+avatar: /assets/img/avatar.jpg
+
+toc: true
 
 comments:
-#  disqus_shortname: ""    # see https://disqus.com/
-#  isso_domain: ""         # see https://posativ.org/isso/
+  provider: # [disqus | utterances | giscus]
 
-plugins:
- - jekyll-feed
- - jekyll-gist
- - jekyll-seo-tag
+paginate: 10
 
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://thecyberproject.fi" # the base hostname & protocol for your site
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+  projects:
+    output: true
+    permalink: /projects/:name/
+  games:
+    output: true
+    permalink: /games/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: page
+      toc: true
+  - scope:
+      path: ""
+      type: games
+    values:
+      layout: page
+      toc: false
+
+sass:
+  style: compressed
+
+# Custom CSS
+head_custom_css:
+  - /assets/css/custom.css
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - "*.config.js"
+  - package*.json
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/

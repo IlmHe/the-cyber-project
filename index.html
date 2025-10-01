@@ -91,7 +91,21 @@ layout: page
 
   if (gameElement) {
     container.innerHTML = gameElement.innerHTML;
-    gameElement.remove(); // Clean up hidden element
+
+    // Execute any scripts in the inserted content
+    const scripts = container.getElementsByTagName('script');
+    for (let i = 0; i < scripts.length; i++) {
+      const script = scripts[i];
+      const newScript = document.createElement('script');
+      if (script.src) {
+        newScript.src = script.src;
+      } else {
+        newScript.textContent = script.textContent;
+      }
+      script.parentNode.replaceChild(newScript, script);
+    }
+
+    gameElement.remove();
   }
 })();
 </script>

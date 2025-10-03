@@ -4,10 +4,10 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-## About Me
+## About
 
-I am passionate about cybersecurity and enjoy working on projects that help improve the security of systems and networks. This site serves as a platform to share my work and thoughts on various cybersecurity topics.
+This is my personal site where I share things I'm working on and write about stuff I find interesting.
 
 ## Contact
 
-Feel free to reach out to me via the social links at the bottom of the page!
+Reach out via the social links below if you want to connect.

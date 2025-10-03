@@ -4,13 +4,12 @@ lang: en
 
 timezone: Europe/Helsinki
 
-title: The Cyber Project
+title: Heinonen
 
-tagline: Cybersecurity Projects and Blog
-# Force rebuild
+tagline: Personal site - projects, posts, and whatever
 
 description: >-
-  Personal projects and writings about cybersecurity
+  My personal space for sharing projects and thoughts
 
 url: "https://heinonen.monster"
 

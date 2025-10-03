@@ -22,49 +22,48 @@ const names = ["Shadow", "Dark", "Phantom", "Ghost", "Silent", "Digital", "Cyber
 const animals = ["Panda", "Dragon", "Wolf", "Raven", "Viper", "Falcon", "Tiger", "Cobra", "Phoenix", "Lynx"];
 const numbers = Array.from({length: 99}, (_, i) => i + 1);
 
-const locations = ["Eastern Europe", "Southeast Asia", "a basement somewhere", "a coffee shop with free WiFi", "their mom's house", "a secret underground lair", "the cloud", "behind 7 proxies", "an undisclosed location", "international waters"];
+const locations = ["Eastern Europe", "Southeast Asia", "a basement somewhere", "a coffee shop", "an undisclosed location", "behind several proxies", "the dark web", "a secure bunker"];
 
 const specialties = [
-  "Crypto-jacking via smart toasters",
-  "Phishing attacks using Comic Sans",
-  "SQL injection through carrier pigeons",
-  "Social engineering via cat memes",
-  "DDoS attacks powered by IoT rubber ducks",
-  "Ransomware delivered by strongly-worded emails",
-  "Zero-day exploits in obsolete technology",
-  "Brute-forcing passwords alphabetically",
-  "Stealing data through aggressive sighing",
-  "Cryptocurrency mining on TI-84 calculators",
-  "Hacking the Gibson (still working on it)",
-  "Malware disguised as motivational quotes",
-  "Bypassing firewalls with pure determination",
+  "Exploiting misconfigured cloud buckets",
+  "Advanced persistent threats (APT)",
+  "Supply chain attacks",
+  "Zero-day vulnerability research",
+  "Social engineering and phishing campaigns",
+  "Ransomware deployment",
+  "Credential stuffing attacks",
+  "API exploitation",
+  "Network infiltration",
+  "Malware development",
+  "Data exfiltration techniques",
+  "SQL injection at scale",
 ];
 
 const nemeses = [
-  "A bored teenager with ChatGPT",
-  "Their ISP's customer service",
-  "A sysadmin who actually reads logs",
-  "The 'forgot password' link",
-  "Windows Update",
-  "A correctly configured firewall",
-  "Someone who spotted the typo in their phishing email",
-  "The 'Remember me' checkbox",
-  "An intern who changed the admin password",
-  "A user who actually enabled 2FA",
-  "The coffee machine that's always broken",
-  "Stack Overflow being down",
+  "Well-trained security teams",
+  "Proper patch management",
+  "Multi-factor authentication",
+  "Network segmentation",
+  "Intrusion detection systems",
+  "Security-aware employees",
+  "Updated firewall rules",
+  "Encrypted databases",
+  "Regular security audits",
+  "Incident response teams",
+  "Bug bounty hunters",
+  "Security researchers",
 ];
 
 const motivations = [
-  "chaos and lulz",
-  "forgot why they started",
-  "proving their ex wrong",
-  "thought it would be cooler",
-  "the thrill of getting past CAPTCHA",
-  "really needs the money for snacks",
-  "accidentally stumbled into this",
-  "watched too many movies",
-  "revenge against autocorrect",
+  "financial gain",
+  "political activism",
+  "corporate espionage",
+  "state-sponsored objectives",
+  "proving a security point",
+  "research purposes",
+  "ideological reasons",
+  "competitive advantage",
+  "exposing vulnerabilities",
 ];
 
 function generatePersona() {

@@ -10,4 +10,5 @@ This is my personal site where I share things I'm working on and write about stu
 
 ## Contact
 
-Reach out via the social links below if you want to connect.
+- [GitHub](https://github.com/IlmHe)
+- [LinkedIn](https://www.linkedin.com/in/ilmar/)

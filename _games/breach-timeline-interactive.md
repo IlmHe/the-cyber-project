@@ -58,10 +58,6 @@ exclude_from_home: true
 </div>
 
 <script src="/assets/js/games/breach-timeline.js"></script>
-<script src="/assets/js/games/breach-timeline.js"></script>
-// Initialize on load
-initTimeline();
-</script>
 
 <style>
 .breach-marker:hover {

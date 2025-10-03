@@ -40,6 +40,18 @@ const fortunes = [
   "You are one with the botnet... no wait, that's bad",
   "Cross-site scripting? More like cross-site friendship!",
   "May your SQL be injection-free and your cookies secure",
+  "Sudo make me a sandwich... with extra privileges",
+  "All your base are belong to us... wait, wrong decade",
+  "404: Fortune not found. Try reloading your karma",
+  "Your MAC address has commitment issues",
+  "The password is in another castle",
+  "With great power comes great permission errors",
+  "There's no place like 127.0.0.1",
+  "Keep calm and clear your cache",
+  "May the HTTPS be with you",
+  "rm -rf / your bad habits",
+  "Life is too short for weak encryption",
+  "When in doubt, restart... but don't blame IT",
 ];
 
 function getFortune() {

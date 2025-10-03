@@ -79,34 +79,9 @@ layout: page
 {% endfor %}
 
 <script>
-(function() {
-  const gameIds = [{% for game in games_array %}'{{ game.game_id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}];
-  if (gameIds.length === 0) return;
-
-  const randomId = gameIds[Math.floor(Math.random() * gameIds.length)];
-  const gameElement = document.getElementById('game-' + randomId);
-  const container = document.getElementById('random-game-container');
-
-  if (gameElement) {
-    container.innerHTML = gameElement.innerHTML;
-
-    // Execute any scripts in the inserted content
-    const scripts = container.getElementsByTagName('script');
-    for (let i = 0; i < scripts.length; i++) {
-      const script = scripts[i];
-      const newScript = document.createElement('script');
-      if (script.src) {
-        newScript.src = script.src;
-      } else {
-        newScript.textContent = script.textContent;
-      }
-      script.parentNode.replaceChild(newScript, script);
-    }
-
-    gameElement.remove();
-  }
-})();
+window.availableGames = [{% for game in games_array %}'{{ game.game_id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}];
 </script>
+<script src="/assets/js/games/loader.js"></script>
 
 <hr style="margin: 3rem 0;">
 

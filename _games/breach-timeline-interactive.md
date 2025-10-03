@@ -3,6 +3,7 @@ title: Interactive Breach Timeline
 emoji: 📊
 order: 4
 game_id: breach-interactive
+exclude_from_home: true
 ---
 
 <div style="padding: 2rem; border: 1px solid var(--main-border-color, #ddd); border-radius: 8px; margin: 2rem 0;">

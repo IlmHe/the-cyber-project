@@ -63,7 +63,7 @@ layout: page
 
 <div id="random-game-container"></div>
 
-{% assign games_array = site.games | sort: 'order' %}
+{% assign games_array = site.games | where_exp: "game", "game.exclude_from_home != true" | sort: 'order' %}
 {% for game in games_array %}
 <div id="game-{{ game.game_id }}" style="display: none;">
   <div style="padding: 1.5rem; border: 1px solid var(--main-border-color, #ddd); border-radius: 8px; margin: 2rem 0; background: var(--card-bg, white);">

@@ -79,10 +79,8 @@ layout: page
 {% endfor %}
 
 <script>
-// Randomly choose which game to show on page load
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
   const gameIds = [{% for game in games_array %}'{{ game.game_id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}];
-
   if (gameIds.length === 0) return;
 
   const randomId = gameIds[Math.floor(Math.random() * gameIds.length)];
@@ -107,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     gameElement.remove();
   }
-});
+})();
 </script>
 
 <hr style="margin: 3rem 0;">

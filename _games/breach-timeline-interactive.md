@@ -6,8 +6,10 @@ game_id: breach-interactive
 exclude_from_home: true
 ---
 
-<div style="padding: 2rem; border: 1px solid var(--main-border-color, #ddd); border-radius: 8px; margin: 2rem 0;">
-  <p style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;">Click on breaches in the timeline to explore what went wrong</p>
+<link rel="stylesheet" href="/assets/css/games.css">
+
+<div class="game-container">
+  <p class="text-center" style="margin-bottom: 1.5rem; font-size: 1.1rem;">Click on breaches in the timeline to explore what went wrong</p>
 
   <!-- Timeline Container -->
   <div style="position: relative; margin: 3rem 0; padding: 2rem 0;">

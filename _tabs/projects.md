@@ -30,7 +30,7 @@ Here's what I'm working on - cybersecurity tools and side projects that scratch 
       Learn More →
     </a>
     {% if project.github %}
-    <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-block; padding: 0.5rem 1rem; background: #333; color: white; text-decoration: none; border-radius: 4px;">
+    <a href="{{ project.github }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display: inline-block; padding: 0.5rem 1rem; text-decoration: none; border-radius: 4px; background: var(--sidebar-bg, #e8e8e8); color: var(--text-color, #2c2c2c); border: 1px solid var(--main-border-color, #c0c0c0);">
       <i class="fab fa-github"></i> GitHub
     </a>
     {% endif %}

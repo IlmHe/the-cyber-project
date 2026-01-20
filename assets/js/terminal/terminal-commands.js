@@ -84,7 +84,9 @@ TIPS:
         return;
       }
 
-      const targetDir = resolvePath(args[0], state.currentDir);
+      // Remove trailing slash for consistency
+      const arg = args[0].replace(/\/$/, '');
+      const targetDir = resolvePath(arg, state.currentDir);
 
       // Check if directory exists
       if (!CV_DATA.filesystem[targetDir]) {
@@ -267,12 +269,12 @@ TIPS:
         printLine('Usage: unlock <password>', 'error');
         return;
       }
-
-      const password = args[0];
-      const correctPassword = CV_DATA.filesystem['/secret_projects']._password;
-
+      const password = args[0].trim().toLowerCase();
+      const correctPassword = (CV_DATA.filesystem['/secret_projects']._password || '').trim().toLowerCase();
       if (password === correctPassword) {
-        state.unlockedDirs.push('secret_projects');
+        if (!state.unlockedDirs.includes('secret_projects')) {
+          state.unlockedDirs.push('secret_projects');
+        }
         printLine('');
         printLine('✅ Access granted to secret_projects/', 'success');
         printLine('');

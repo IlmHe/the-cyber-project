@@ -1,0 +1,197 @@
+/* Game Container Styles */
+.game-container {
+  padding: 2rem;
+  border: 1px solid var(--main-border-color, #ddd);
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.game-container-center {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid var(--main-border-color, #ddd);
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+/* Fortune Cookie Styles */
+#fortune-text {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 2rem 0;
+  min-height: 3rem;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.fortune-button {
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.fortune-button:hover {
+  transform: scale(1.1);
+}
+
+/* Persona Generator Styles */
+#persona-display {
+  padding: 2rem;
+  background: var(--card-bg, #f9f9f9);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  min-height: 200px;
+}
+
+.persona-button {
+  padding: 0.75rem 2rem;
+  background: #FF5722;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.persona-button:hover {
+  background: #E64A19;
+}
+
+.persona-name {
+  color: #FF5722;
+}
+
+.persona-title {
+  margin-top: 0;
+  text-align: center;
+  color: #FF5722;
+}
+
+.persona-content {
+  margin: 1.5rem 0;
+}
+
+.persona-field {
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.persona-detail {
+  margin: 0.5rem 0;
+}
+
+.persona-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #666;
+}
+
+/* Breach Timeline Styles */
+#timeline-container {
+  position: relative;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--main-border-color, #ddd);
+  transform: translateY(-50%);
+}
+
+.timeline-breach {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: #FF5722;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.timeline-breach:hover {
+  width: 20px;
+  height: 20px;
+  background: #E64A19;
+  z-index: 10;
+}
+
+.breach-label {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  color: var(--text-color, #24292f);
+  pointer-events: none;
+}
+
+#breach-details {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--card-bg, #f9f9f9);
+  border-radius: 8px;
+  border: 1px solid var(--main-border-color, #ddd);
+}
+
+.breach-title {
+  color: #FF5722;
+  margin-top: 0;
+}
+
+.breach-meta {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.breach-stat {
+  margin: 0.5rem 0;
+}
+
+.breach-impact {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--sidebar-bg, #f7f7f7);
+  border-left: 3px solid #FF5722;
+  border-radius: 4px;
+}
+
+.close-details {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color, #24292f);
+  line-height: 1;
+  padding: 0;
+}
+
+.close-details:hover {
+  color: #FF5722;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}

@@ -141,7 +141,6 @@ methodology, tools used, and lessons learned.
       "_locked": true,
       "_password": "a3f9b2",
       "_hint": "🔒 Access denied. This directory requires a password.\n\nTry the 'unlock <password>' command when you find it...",
-
       "flag.txt": `🎉 Congratulations! 🎉
 
 You successfully navigated the puzzle chain and found the hidden directory!

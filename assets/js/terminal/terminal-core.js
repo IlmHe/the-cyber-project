@@ -32,6 +32,9 @@
     // Attach keyboard listener
     document.addEventListener('keydown', handleKeyboard);
 
+    // Add paste support
+    containerElement.addEventListener('paste', handlePaste);
+
     // Focus terminal on click
     containerElement.addEventListener('click', () => {
       containerElement.focus();
@@ -92,7 +95,7 @@ Type 'help' to see available commands.
 
       case 'Tab':
         event.preventDefault();
-        // Tab completion - future feature
+        handleTabAutocomplete();
         break;
 
       case 'l':
@@ -160,6 +163,50 @@ Type 'help' to see available commands.
   function handleCharacter(char) {
     state.inputBuffer += char;
     inputElement.textContent = state.inputBuffer;
+  }
+
+  // Handle Paste Event
+  function handlePaste(event) {
+    event.preventDefault();
+    const paste = (event.clipboardData || window.clipboardData).getData('text');
+    if (paste) {
+      state.inputBuffer += paste;
+      inputElement.textContent = state.inputBuffer;
+    }
+  }
+
+  // Handle Tab Autocomplete
+  function handleTabAutocomplete() {
+    const input = state.inputBuffer;
+    const parts = input.trim().split(/\s+/);
+    const isFirst = parts.length === 1;
+    const last = parts[parts.length - 1];
+    let suggestions = [];
+    if (isFirst) {
+      // Suggest commands
+      if (window.terminalCommands) {
+        suggestions = Object.keys(window.terminalCommands).filter(cmd => cmd.startsWith(last));
+      }
+    } else {
+      // Suggest files/dirs in current dir
+      const dirContent = CV_DATA.filesystem[state.currentDir];
+      if (dirContent) {
+        suggestions = Object.keys(dirContent).filter(name => name.startsWith(last));
+      }
+    }
+    if (suggestions.length === 1) {
+      // Single match: autocomplete
+      if (isFirst) {
+        state.inputBuffer = suggestions[0] + ' ';
+      } else {
+        parts[parts.length - 1] = suggestions[0];
+        state.inputBuffer = parts.join(' ') + (input.endsWith(' ') ? ' ' : '');
+      }
+      inputElement.textContent = state.inputBuffer;
+    } else if (suggestions.length > 1) {
+      // Multiple matches: show list
+      printLine(suggestions.join('    '), 'info');
+    }
   }
 
   // Execute Command

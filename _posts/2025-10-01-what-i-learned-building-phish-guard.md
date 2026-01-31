@@ -5,7 +5,7 @@ categories: [Cybersecurity, Development]
 tags: [phishing, web-security, browser-extension, learning]
 ---
 
-So I tried building Phish-Guard thinking "how hard could detecting phishing be?" and uh... yeah, I learned a lot. Mostly about how little I knew going in.
+Building Phish-Guard was an engineering deep-dive into the nuances of web security. I started with a straightforward goal—to build a browser extension that adds a contextual security layer browsers don't provide. The process revealed just how complex the threat landscape is.
 
 ## SSL Certificates Are More Complicated Than I Thought
 
@@ -201,9 +201,9 @@ So I'm also checking:
 - iframe positioning (negative margins to hide them)
 - iframe source domain reputation
 
-This is probably the messiest part of the code. Lots of edge cases, lots of false positives on legitimate sites.
+This part of the detection engine has many edge cases and can produce false positives on legitimate sites.
 
-**Real talk:** The automatic monitoring can be pretty trigger-happy. News sites especially will set it off constantly because they load SO many third-party resources. I made it opt-in for a reason - having alerts pop up on every other site gets annoying fast. Manual scanning is way more reliable.
+**Real talk:** The automatic monitoring can be "trigger-happy." Modern websites, especially news and media sites, load resources from dozens of third-party domains for ads, analytics, and content delivery. This can cause the extension to generate a high number of alerts. For this reason, the feature is opt-in, as balancing sensitivity and specificity is a key challenge. Manual scanning remains the most reliable approach for a targeted analysis.
 
 ## Mixed Content Taught Me About Security Context
 
@@ -307,7 +307,7 @@ That green lock icon doesn't mean what I thought it meant. It just means "encryp
 
 Modern phishing uses proper HTTPS, convincing designs, and sometimes even passes basic security checks. You need to look at context - certificate age, domain age, suspicious patterns - that browsers don't show you.
 
-I'm pretty sure I'm missing obvious stuff too. This is my first real extension and my first deep dive into web security. Code's a mess in places. But it works, and I learned a ton.
+This was my first real browser extension and a valuable deep dive into web security. While there are parts I plan to refactor, the extension is functional and served as an immense learning experience.
 
 **Full transparency:** I used AI (ChatGPT/Claude) a LOT during development. This is a side project, and I was learning as I went. That means:
 - Some patterns might be non-standard
@@ -327,7 +327,7 @@ AI was super helpful for understanding concepts and generating boilerplate, but 
 - Maybe user reporting for missed phishing sites
 - Performance optimization (some scans are kinda slow)
 
-Code's on [GitHub](https://github.com/IlmHe/Phish-Guard) if you want to check it out or contribute. Don't expect clean code - it's my first extension and I was learning as I went. But I'm open to suggestions and PRs!
+The source code is available on [GitHub](https://github.com/IlmHe/Phish-Guard) if you want to check it out or contribute. I welcome suggestions, contributions, and pull requests!
 
 ---
 

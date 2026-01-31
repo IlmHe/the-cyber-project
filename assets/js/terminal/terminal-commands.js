@@ -266,7 +266,7 @@ TIPS:
 
     unlock: function(args, state) {
       if (!args[0]) {
-        printLine('Usage: unlock <password>', 'error');
+        printLine('Usage: unlock &lt;password&gt;', 'error');
         return;
       }
       const password = args[0].trim().toLowerCase();
@@ -276,17 +276,12 @@ TIPS:
           state.unlockedDirs.push('secret_projects');
         }
         printLine('');
-        printLine('✅ Access granted to secret_projects/', 'success');
-        printLine('');
-        printLine('🎉 Achievement Unlocked: Code Breaker!', 'success');
-        printLine('');
-        printLine('You can now \'cd secret_projects\' to explore the hidden content.');
+        printLine('Access Granted.', 'success');
+        printLine('Directory /secret_projects is now readable.');
         printLine('');
       } else {
         printLine('');
-        printLine('❌ Incorrect password.', 'error');
-        printLine('');
-        printLine('Hint: Have you explored all the projects? Check for hidden data...', 'info');
+        printLine('Access Denied.', 'error');
         printLine('');
       }
     },
@@ -296,15 +291,15 @@ TIPS:
 
       printLine('');
       if (state.hintCount === 1) {
-        printLine('💡 Hint #1: Check the environment variables with \'env\'', 'info');
+        printLine('Hint: Check environment variables.', 'info');
       } else if (state.hintCount === 2) {
-        printLine('💡 Hint #2: Explore the projects directory. Look for encoded data.', 'info');
+        printLine('Hint: Explore the projects directory for encoded data.', 'info');
       } else if (state.hintCount === 3) {
-        printLine('💡 Hint #3: Some project files contain base64 encoded strings. Try decoding them.', 'info');
+        printLine('Hint: Some files contain base64 encoded strings.', 'info');
       } else if (state.hintCount === 4) {
-        printLine('💡 Hint #4: Once decoded, you might get a filename. Use \'strings\' on it.', 'info');
+        printLine('Hint: Decoded data might reveal a filename. Check its metadata.', 'info');
       } else {
-        printLine('💡 Final Hint: The password is hidden in profile.png metadata. Use strings + base64.', 'info');
+        printLine('Hint: The password is in profile.png metadata. Use strings + base64.', 'info');
       }
       printLine('');
     },
@@ -380,9 +375,7 @@ TIPS:
       printLine('        ⬜⬜⬛⬛🟩🟩🟩🟩🟩🟩🟩🟩⬛⬛⬜⬜');
       printLine('        ⬜⬜⬜⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜');
       printLine('');
-      printLine('        🎮 Achievement Unlocked: Caffeine Powered!', 'success');
-      printLine('');
-      printLine('        Unleash the beast! ⚡💚', 'info');
+      printLine('        System: ⚡💚', 'info');
       printLine('');
     }
   };

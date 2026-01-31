@@ -17,59 +17,61 @@ order: 1
 
 ## Overview
 
-Phish-Guard is a browser extension I built to add extra phishing protection on top of what browsers already do pretty well. Think of it as a nice complementary tool that shows you the security context your browser doesn't display.
+Phish-Guard is a browser extension I built to add extra phishing protection on top of what browsers already do pretty well. Think of it as a complementary tool that exposes the security context your browser typically hides.
 
-Browsers do a solid job with basic security, but here's the gap I wanted to fill: when you visit a site with a valid HTTPS certificate, you see that reassuring "Secure 🔒" - which is technically correct. But what if that domain and certificate were both created 3 hours ago? That's a massive red flag, but browsers don't really highlight that kind of context.
+Browsers do a solid job with basic security, but there is a gap: when you visit a site with a valid HTTPS certificate, you see that reassuring "Secure 🔒" indicator. However, if that domain and certificate were both created 3 hours ago, that is a significant risk indicator that standard interfaces often obscure.
 
 ## Why This Matters
 
-I wanted something that would actually tell me "hey, this domain was registered 3 hours ago and the SSL cert is newer than your lunch" - basically adding that extra layer of awareness as a nice addon to your browser's existing protection.
+I wanted a tool that would explicitly flag anomalies—like a domain registered 3 hours ago with an SSL certificate issued 5 minutes ago. Phish-Guard adds that layer of situational awareness atop your browser's existing protection.
 
 ## Key Features
 
 ### Automatic Resource Monitoring (Optional)
-I made this opt-in because not everyone wants their extension watching everything. When enabled, it'll:
-- Keep an eye on sketchy external scripts and iframes loaded by pages
-- Spot mixed content issues (HTTP stuff on HTTPS pages)
-- Alert you when something looks really sus
-- All analysis happens locally - no phoning home to random APIs
+I made this opt-in to respect user privacy and performance. When enabled, it will:
+- Monitor for suspicious external scripts and iframes loaded by pages
+- Identify mixed content issues (HTTP resources on HTTPS pages)
+- Alert you to anomalous resource patterns
+- Perform all analysis locally without sending data to external APIs
+
+**Note:** This feature is currently highly sensitive and can be "trigger-happy," sometimes flagging legitimate third-party resources on sites like YouTube. Fine-tuning the detection logic is an ongoing process.
 
 ### Manual Scanning (The Main Event)
 Right-click any link and hit "Scan with Phish-Guard" to get:
-- Database check against known phishing sites (mostly South African ones I've collected)
-- Homograph detection for those sneaky lookalike domains (like using Cyrillic 'а' in "pаypal.com")
+- Database check against a curated list of known phishing sites
+- Homograph detection for lookalike domains (e.g., Cyrillic 'а' in "pаypal.com")
 - Domain age info via WHOIS
-- Certificate age from CT logs - this is the good stuff browsers hide
-- A risk score from 0-100 so you know what you're dealing with
+- Certificate age from CT logs
+- A calculated risk score (0-100)
 
 ### Certificate Age Checking
-This is what I'm most proud of. If a domain is 2 hours old with a 2 hour old certificate, that's a massive red flag worth knowing about. Browsers focus on whether the cert is valid (which is great!), but this adds the extra context of "how new is this cert?"
+This is a core feature. If a domain is 2 hours old with a 2-hour-old certificate, it is highly likely to be malicious. Browsers focus on certificate validity; Phish-Guard focuses on certificate context.
 
-Also built two view modes: Simple (just the essentials) and Advanced (all the nerdy details for when you really want to dig in).
+Also built two view modes: Simple (essentials) and Advanced (technical details).
 
 ## Risk Assessment
 
-The extension gives everything a score:
-- **0-29**: You're probably fine
-- **30-59**: Maybe be careful here
-- **60-79**: Yeah this looks sketchy
-- **80-100**: Run. Just run.
+The extension assigns a risk score:
+- **0-29**: Low Risk
+- **30-59**: Moderate Risk
+- **60-79**: High Risk
+- **80-100**: Critical Risk
 
-It checks a bunch of stuff - phishing databases, suspicious patterns, domain age, cert age, weird TLDs like .tk or .ml, IP addresses pretending to be domains... you get the idea.
+It checks various factors including phishing databases, suspicious patterns, domain age, cert age, high-risk TLDs (like .tk or .ml), and IP addresses used as domains.
 
 ## Tech Stack
 
-Built with TypeScript and React, bundled with Webpack. Uses Manifest V3 for Chrome/Firefox compatibility. The phishing database runs on Supabase, and I'm using Certificate Transparency logs for cert age checks. WHOIS APIs for domain info. UI styled with Bulma CSS. Nothing too fancy, just what works.
+Built with TypeScript and React, bundled with Webpack. Uses Manifest V3 for Chrome/Firefox compatibility. The phishing database runs on Supabase, and I'm using Certificate Transparency logs for cert age checks. WHOIS APIs for domain info. UI styled with Bulma CSS.
 
 ## Status & Contributing
 
-This is very much a personal side project - it works and does what I need it to, but there's tons of room for improvement! The extension has a long way to go before it's "complete" (if such a thing even exists for security tools).
+This is a personal project that serves my needs, but there is room for improvement.
 
-**Ideas and PRs are super welcome!** Seriously, if you have suggestions for better detection methods, new features, or ways to improve the UX, I'd love to hear them. The code quality is... let's say "creatively structured" since this was my first browser extension and I coded it in my signature schizo style with heavy AI assistance. So if you're expecting pristine, textbook code, prepare yourself accordingly. It works, but there are definitely better ways to do some things.
+**Ideas and PRs are welcome.** I am open to suggestions for better detection methods, new features, or UX improvements. This project served as a practical exploration of browser extension security models and Manifest V3. While the codebase reflects an iterative learning process, I am working on refactoring core components to align with stricter design patterns.
 
 Available for both Chrome and Firefox.
 
-**Want the full story?** I wrote a blog post about everything I learned: [What I Learned Building Phish-Guard](/posts/what-i-learned-building-phish-guard/) - technical details on SSL certificates, homograph attacks, iframes, and all the edge cases I ran into.
+**Want the full story?** I wrote a blog post about the development process: [What I Learned Building Phish-Guard](/posts/what-i-learned-building-phish-guard/) - covering technical details on SSL certificates, homograph attacks, and iframe security.
 
 <div class="project-buttons" style="margin: 2rem 0;">
   <a href="https://github.com/IlmHe/Phish-Guard" class="btn btn-primary" style="display: inline-block; padding: 0.5rem 1.5rem; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px; margin-right: 1rem;">
